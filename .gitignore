@@ -1,0 +1,44 @@
+
+# Alle Files mit dieser Endung nicht comitten.......................
+*~
+
+
+# Alles in diesem Ordner nicht commiten .............................
+lab2_proj
+DTP_2_Synthesizer
+
+# ausser Dateien mit den Endungen nach !.............................
+FPGA/synthese/**/*
+!FPGA/synthese/DE2115pin.tcl
+
+FPGA/simulation/**/*
+#!FPGA/simulation/script/*.do
+
+FPGA/vhdl/**/*
+!FPGA/vhdl/test.bdf
+
+
+
+# docu/ noch nicht in git............................................
+docu
+
+# tex auxiliary files.........
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+
+# tex pdf ......................
+*.pdf
+
+# bibtex ........................
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.brf
+*.run.xml
