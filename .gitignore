@@ -1,23 +1,42 @@
 
 # Alle Files mit dieser Endung nicht comitten.......................
 *~
+*qar
+*bak
 
 
-# Alles in diesem Ordner nicht commiten .............................
+# Alles in diesem Ordner nicht comitten .............................
 lab2_proj
 DTP_2_Synthesizer
 
 # ausser Dateien mit den Endungen nach !.............................
 FPGA/synthese/**/*
 !FPGA/synthese/DE2115pin.tcl
+!FPGA/synthese/Counter_irregularities.qpf
+!FPGA/synthese/Counter_irregularities.qsf
+# Name.cdf Programming chain settings
+# Name.qdf Default assignments
+# Name.qpf Project file
+# Name.qsf Assignments (except timing)
+# Name.sdc Timing constrains. 
+
+# FPGA/synthese/output_files/**/*
+!FPGA/synthese/output_files/Counter_irregularities.sof Programming file
+# !FPGA/synthese/output_files/Counter_irregularities.pof Programming file
 
 FPGA/simulation/**/*
 #!FPGA/simulation/script/*.do
 
 FPGA/vhdl/**/*
 !FPGA/vhdl/test.bdf
-
-
+# *.vhd VHDL source
+# *.bdf Schematic
+# *.bsf Symbols
+# *.mif Memory init
+# *.ptf SOPC file (old but recommended)
+# *.qip MegaWizard IP
+# *.sopc SOPC file
+# *.tcl Scripts
 
 # docu/ noch nicht in git............................................
 docu

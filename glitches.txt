@@ -1,0 +1,18 @@
+Glitches
+
+Problem
+-----------
+In der Signalverarbeitung entsteht der Fall, dass ein Signal aus einem Teil des Systems an einer anderen Komponente detektiert wird.
+Dies ist z. B der Fall wenn alte FPGAs an neue angeschlossen werden.
+Es führt zu Clockproblemen
+
+
+
+
+Praxis
+------
+Erste VHDL Version: 
+Logik im Getakteten Prozess gemacht. Dadurch war logik Synchoron.
+
+Glitches entstehen bei Asynchronem Reset. 
+Der Vergleich muss deshalb ausserhalb des getakteten Prozesses statt finden.
