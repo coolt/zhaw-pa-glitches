@@ -15,16 +15,12 @@ DTP_2_Synthesizer
 
 # SYNTHESE.........................................................
 
-FPGA/synthese/**/*
-!FPGA/synthese/DE2_Pin.tcl                      # Pin assignments Scripts
-!FPGA/synthese/DE2_Pin.tcl
-!FPGA/synthese/Counter_irregularities.qpf       # Project file
-!FPGA/synthese/Counter_irregularities.qsf       # Assignments (except timing)         
-    
-!FPGA/synthese/*.sdc            # Timing constrains
-!FPGA/synthese/*.cdf            # Programming chain settings
-!FPGA/synthese/*.qdf            # Default assignments 
-
+# Ordner
+FPGA/synthese/db
+ 
+FPGA/synthese/output_files
+FPGA/synthese/simulation
+FPGA/synthese/incremental_db                  
 
 # SIMULATION ......................................................
 
