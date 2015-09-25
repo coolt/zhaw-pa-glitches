@@ -1,44 +1,55 @@
 
-# Alle Files mit dieser Endung nicht comitten.......................
+# ALLGEMEIN ....................................................
+
+# Dateiformate
 *~
 *qar
 *bak
 
-
-# Alles in diesem Ordner nicht comitten .............................
+# Ordner 
 lab2_proj
 DTP_2_Synthesizer
 
-# ausser Dateien mit den Endungen nach !.............................
+
+
+# SYNTHESE..........................................................
+
 FPGA/synthese/**/*
 !FPGA/synthese/DE2115pin.tcl
-!FPGA/synthese/Counter_irregularities.qpf
-!FPGA/synthese/Counter_irregularities.qsf
-# Name.cdf Programming chain settings
-# Name.qdf Default assignments
-# Name.qpf Project file
-# Name.qsf Assignments (except timing)
-# Name.sdc Timing constrains. 
+!FPGA/synthese/*.qdf            # Default assignments 
+!FPGA/synthese/*.qpf            # Project file
+!FPGA/synthese/*.qsf            # Assignments (except timing)
 
-# FPGA/synthese/output_files/**/*
-!FPGA/synthese/output_files/Counter_irregularities.sof Programming file
-# !FPGA/synthese/output_files/Counter_irregularities.pof Programming file
+# !FPGA/synthese/*.sdc          # Timing constrains
+# !FPGA/synthese/*.cdf          # Programming chain settings
+
+
+
+# SIMULATION .......................................................
 
 FPGA/simulation/**/*
-#!FPGA/simulation/script/*.do
+
+# !FPGA/simulation/script/*.do
+
+
+
+# VHDL.............................................................
 
 FPGA/vhdl/**/*
-!FPGA/vhdl/test.bdf
-# *.vhd VHDL source
-# *.bdf Schematic
-# *.bsf Symbols
-# *.mif Memory init
-# *.ptf SOPC file (old but recommended)
-# *.qip MegaWizard IP
-# *.sopc SOPC file
-# *.tcl Scripts
+!FPGA/vhdl/*.vhd              # VHDL source
+!FPGA/vhdl/*.bdf              # Schematic
+!FPGA/vhdl/*.bsf              # Symbols
+!FPGA/vhdl/*.mif              # Memory init
+!FPGA/vhdl/*.ptf              # SOPC file (old but recommended)
+!FPGA/vhdl/*.qip              # MegaWizard IP
+!FPGA/vhdl/*.sopc             # SOPC file
+!FPGA/vhdl/*.tcl              # Pin assignments Scripts
 
-# docu/ noch nicht in git............................................
+
+
+# DOKUMENTATTION (noch nicht in git)................................
+
+# Ordner
 docu
 
 # tex auxiliary files.........
