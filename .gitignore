@@ -5,7 +5,7 @@
 *~
 *qar
 *bak
-*vhd 
+
 
 # Ordner 
 lab2_proj
@@ -13,20 +13,20 @@ DTP_2_Synthesizer
 
 
 
-# SYNTHESE..........................................................
+# SYNTHESE.........................................................
 
 FPGA/synthese/**/*
-# !FPGA/synthese/DE2115pin.tcl
-!FPGA/synthese/*.qdf            # Default assignments 
-!FPGA/synthese/*.qpf            # Project file
-!FPGA/synthese/*.qsf            # Assignments (except timing)
-!FPGA/synthese/*.tcl            # Pin assignments Scripts
+!FPGA/synthese/DE2_Pin.tcl                      # Pin assignments Scripts
+!FPGA/synthese/DE2_Pin.tcl
+!FPGA/synthese/Counter_irregularities.qpf       # Project file
+!FPGA/synthese/Counter_irregularities.qsf       # Assignments (except timing)         
+    
 !FPGA/synthese/*.sdc            # Timing constrains
 !FPGA/synthese/*.cdf            # Programming chain settings
+!FPGA/synthese/*.qdf            # Default assignments 
 
 
-
-# SIMULATION .......................................................
+# SIMULATION ......................................................
 
 FPGA/simulation/**/*
 
@@ -37,7 +37,9 @@ FPGA/simulation/**/*
 # VHDL.............................................................
 
 FPGA/vhdl/**/*
-!FPGA/vhdl/*.vhd              # VHDL source
+!FPGA/vhdl/counter.vhd                      # VHDL source
+!FPGA/vhdl/top_counter_verification.vhd
+
 !FPGA/vhdl/*.bdf              # Schematic
 !FPGA/vhdl/*.bsf              # Symbols
 !FPGA/vhdl/*.mif              # Memory init
@@ -47,7 +49,7 @@ FPGA/vhdl/**/*
 
 
 
-# DOKUMENTATTION (noch nicht in git)................................
+# DOKUMENTATTION (noch nicht in git)...............................
 
 # Ordner
 docu
