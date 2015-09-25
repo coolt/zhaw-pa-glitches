@@ -36,16 +36,6 @@ FPGA/simulation/**/*
 
 # VHDL.............................................................
 
-FPGA/vhdl/**/*
-!FPGA/vhdl/counter.vhd                      # VHDL source
-!FPGA/vhdl/top_counter_verification.vhd
-
-!FPGA/vhdl/*.bdf              # Schematic
-!FPGA/vhdl/*.bsf              # Symbols
-!FPGA/vhdl/*.mif              # Memory init
-!FPGA/vhdl/*.ptf              # SOPC file (old but recommended)
-!FPGA/vhdl/*.qip              # MegaWizard IP
-!FPGA/vhdl/*.sopc             # SOPC file
 
 
 
