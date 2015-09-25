@@ -5,6 +5,7 @@
 *~
 *qar
 *bak
+*vhd 
 
 # Ordner 
 lab2_proj
@@ -15,13 +16,13 @@ DTP_2_Synthesizer
 # SYNTHESE..........................................................
 
 FPGA/synthese/**/*
-!FPGA/synthese/DE2115pin.tcl
+# !FPGA/synthese/DE2115pin.tcl
 !FPGA/synthese/*.qdf            # Default assignments 
 !FPGA/synthese/*.qpf            # Project file
 !FPGA/synthese/*.qsf            # Assignments (except timing)
-
-# !FPGA/synthese/*.sdc          # Timing constrains
-# !FPGA/synthese/*.cdf          # Programming chain settings
+!FPGA/synthese/*.tcl            # Pin assignments Scripts
+!FPGA/synthese/*.sdc            # Timing constrains
+!FPGA/synthese/*.cdf            # Programming chain settings
 
 
 
@@ -43,7 +44,6 @@ FPGA/vhdl/**/*
 !FPGA/vhdl/*.ptf              # SOPC file (old but recommended)
 !FPGA/vhdl/*.qip              # MegaWizard IP
 !FPGA/vhdl/*.sopc             # SOPC file
-!FPGA/vhdl/*.tcl              # Pin assignments Scripts
 
 
 
