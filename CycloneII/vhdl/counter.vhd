@@ -31,7 +31,7 @@ architecture rtl of counter is
 
 signal   cnt: 			integer range 0 to 255 		:= 0;
 signal   next_cnt: 	integer range 0 to 255 		:= 0;
-signal 	glitch: 		std_logic 						:= '0';
+signal 	glitch: 		std_logic 						:= '0';  -- asynchronous
 signal 	next_zero: 	std_logic 						:= '0';
 signal 	zero: 		std_logic 						:= '0';
 
@@ -39,10 +39,12 @@ begin
 
 	-- clocked prozess -------------------------------
 	-- stores actual system state
-	ff: process(clk, glitch)	
+	ff: process(clk, glitch, next_zero)	
 	begin	
+		-- asynchrounous
 		if (glitch = '1') then				
 				cnt <= 0;	
+		-- synchrounous
 		elsif (rising_edge(clk)) then	
 				cnt <= next_cnt;	
 				zero <= next_zero;	
@@ -52,28 +54,32 @@ begin
 	-- input logic process ----------------------------
 	count_up: process(cnt)	
 	begin	
+		-- asynchronous
 		next_cnt <= cnt + 1;
 	end process;
 	
-	-- output logic process ----------------------------
+	-- output logic process ---------------------------
 	output: process(cnt)	
 	begin	
-			if (cnt = 158) then				
+	   -- asynchronous
+		if (cnt = 158) then				
 				glitch <= '1';
-			else 				
+		else 				
 				glitch <= '0';
-			end if;		
+		end if;		
 	end process;
 	
-	-- output logic
+	-- output logic process ---------------------------
 	output2:	process(cnt)	
 	begin	
-			if (cnt = 0) then				
+		if (cnt = 0) then				
 				next_zero <= '1';
-			else 				
+		else 				
 				next_zero <= '0';
-			end if;		
+		end if;		
 	end process;
 	
-			verification <= glitch;
+	
+	-- Concourent assignments ---------------------------
+	verification <= glitch;
 end rtl;

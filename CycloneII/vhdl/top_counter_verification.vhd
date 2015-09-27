@@ -2,6 +2,7 @@
 -- Project     : Glitches detect
 -- Description : top_counter_verification.vhd
 -- Author      : Katrin Bächli
+-- FPGA        : Cylcone II
 -------------------------------------------------------------------------------
 -- Change History
 -- Date     |Name      |Modification
