@@ -1,5 +1,0 @@
-set tool_name "QuestaSim (VHDL)"
-set corner_file_list {
-	{{"Slow Model"} {Counter_irregularities.vho Counter_irregularities_vhd.sdo}}
-	{{"Fast Model"} {Counter_irregularities_fast.vho Counter_irregularities_vhd_fast.sdo}}
-}
