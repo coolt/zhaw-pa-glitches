@@ -8,26 +8,29 @@
 
 
 # Ordner 
-lab2_proj
-DTP_2_Synthesizer
-FPGA
+lab2_proj/
+DTP_2_Synthesizer/
+FPGA/
 
 
 # SYNTHESE.........................................................
 
-# Ordner
-FPGA/synthese/db
- 
-FPGA/synthese/output_files
-FPGA/synthese/simulation
-FPGA/synthese/incremental_db                  
+# Ordner nicht comitten
+**/synthese/db/
+**/synthese/output_files/
+**/synthese/simulation
+**/synthese/incremental_db
+
+
+
 
 # SIMULATION ......................................................
 
-FPGA/simulation/**/*
+Cyclone_II/simulation/**/*
+# !Cyclone_II/simulation/script/*.do
 
-# !FPGA/simulation/script/*.do
-
+Cyclone_IV/simulation/**/*
+# !Cyclone_IV/simulation/script/*.do
 
 
 # VHDL.............................................................
