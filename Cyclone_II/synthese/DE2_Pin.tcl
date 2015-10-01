@@ -353,7 +353,7 @@ set_location_assignment PIN_AE24 -to IRDA_TXD
 set_location_assignment PIN_AD24 -to SD_DAT
 set_location_assignment PIN_AC23 -to SD_DAT3
 set_location_assignment PIN_D25 -to GPIO_0_0
-set_location_assignment PIN_J22 -to GPIO_0[1]
+set_location_assignment PIN_J22 -to GPIO_0_1
 set_location_assignment PIN_E26 -to GPIO_0[2]
 set_location_assignment PIN_E25 -to GPIO_0[3]
 set_location_assignment PIN_F24 -to GPIO_0[4]

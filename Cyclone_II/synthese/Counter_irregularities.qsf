@@ -51,8 +51,6 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_global_assignment -name VHDL_FILE ../vhdl/counter.vhd
-set_global_assignment -name VHDL_FILE ../vhdl/top_counter_verification.vhd
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL OFF
@@ -485,4 +483,7 @@ set_location_assignment PIN_W25 -to GPIO_1[34]
 set_location_assignment PIN_W23 -to GPIO_1[35]
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_location_assignment PIN_J22 -to GPIO_0_1
+set_global_assignment -name VHDL_FILE ../vhdl/top_counter_verification.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/counter.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

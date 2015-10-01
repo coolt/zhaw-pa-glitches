@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- Project     : Glitches detect
+-- Project     : Glitches detect: TEST
 -- Description : counter.vhd
---               Has the counter gained a certain value, 
---               the reset signal transmitt a HIGH
+--               Because of fabrication by 8 FF, the counting Number shoud apears not
+--               only regluary. 
 -- Author      : Katrin Bächli
 -------------------------------------------------------------------------------
 -- Change History
@@ -17,7 +17,6 @@ use ieee.numeric_std.all;
 
 entity counter is
 	port(	clk: 				in std_logic;
-			rst_n: 			in std_logic;
 			verification:	out std_logic; 
 			zero_out:		out std_logic
 	);
@@ -32,13 +31,12 @@ architecture rtl of counter is
 signal   cnt: 			integer range 0 to 255 		:= 0;
 signal   next_cnt: 	integer range 0 to 255 		:= 0;
 signal 	glitch: 		std_logic 						:= '0';  -- asynchronous
-signal 	next_zero: 	std_logic 						:= '0';
+signal 	next_zero: 	std_logic 						:= '0';  -- synchrounous
 signal 	zero: 		std_logic 						:= '0';
 
 begin
 
 	-- clocked prozess -------------------------------
-	-- stores actual system state
 	ff: process(clk, glitch, next_zero)	
 	begin	
 		-- asynchrounous
@@ -58,7 +56,7 @@ begin
 		next_cnt <= cnt + 1;
 	end process;
 	
-	-- output logic process ---------------------------
+	-- output logic process 1---------------------------
 	output: process(cnt)	
 	begin	
 	   -- asynchronous
@@ -69,7 +67,8 @@ begin
 		end if;		
 	end process;
 	
-	-- output logic process ---------------------------
+	-- output logic process 2---------------------------
+	-- for destinguish nois from glitches
 	output2:	process(cnt)	
 	begin	
 		if (cnt = 0) then				
@@ -82,4 +81,5 @@ begin
 	
 	-- Concourent assignments ---------------------------
 	verification <= glitch;
+	zero_out <= zero;
 end rtl;
