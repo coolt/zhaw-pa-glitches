@@ -1,0 +1,40 @@
+Quartus II Archive log --	/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/Counter_irregularities_tmp_archive.qarlog
+
+Archive:	/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/Counter_irregularities_tmp_archive.qar
+Date:		Wed Sep 30 15:02:01 2015
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+
+	=========== Files Selected: ===========
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/Counter_irregularities.qpf
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/Counter_irregularities.qsf
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/Counter_irregularities.sdc
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/DE2_Pin.tcl
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/incremental_db/compiled_partitions/Counter_irregularities.db_info
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.asm.rpt
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.done
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.eda.rpt
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.fit.rpt
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.fit.smsg
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.fit.summary
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.flow.rpt
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.jdi
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.map.rpt
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.map.summary
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.pin
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.pof
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.sof
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.sta.rpt
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/output_files/Counter_irregularities.sta.summary
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter.vhd
+/home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/top_counter_verification.vhd
+/opt/altera/13.0sp1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 23 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Wed Sep 30 15:02:02 2015
+Source archive file:	/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese/Counter_irregularities_tmp_archive.qar
+Archive was extracted into	/home/katrin/Documents/a_PA_glitches/Cyclone_II/synthese_2/
+		 - successfully.
