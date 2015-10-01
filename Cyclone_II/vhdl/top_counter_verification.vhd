@@ -17,7 +17,6 @@ use IEEE.NUMERIC_STD.ALL;
  
 ENTITY top_counter_verification IS
       PORT(    CLOCK_50: 			IN std_logic;
-					KEY_0: 				IN std_logic;
 					GPIO_0_0:		   OUT std_logic;  
 					GPIO_0_1:		   OUT std_logic  
 		);
@@ -33,7 +32,6 @@ ARCHITECTURE blocks OF top_counter_verification IS
 
 		COMPONENT counter
 				  PORT(	clk: 				IN std_logic;
-							rst_n: 			IN std_logic;
 							verification:	OUT std_logic; 
 							zero_out:		OUT std_logic
 					);
@@ -41,20 +39,19 @@ ARCHITECTURE blocks OF top_counter_verification IS
 		
 				
     -- Signals: 
-	 
-	 
+	 SIGNAL s_set_zero: std_logic := '0';
+	 SIGNAL s_set_clock: std_logic := '0';
 		
 	 -- Instantiation of components: 
 		BEGIN
    
 		inst_counter: counter
 		PORT MAP(		clk 				=> CLOCK_50,
-							rst_n 			=> KEY_0,
-							verification	=> GPIO_0_0,
-							zero_out 		=> GPIO_0_1
+							verification	=> GPIO_0_0,  
+							zero_out 		=> GPIO_0_1    	
 		);
 	 
-		
+
 ----------------------------------------------------------------------------------
 -- Processes
 ----------------------------------------------------------------------------------
