@@ -6,7 +6,9 @@
 -- Change History
 -- Date     |Name      |Modification
 ------------|----------|-------------------------------------------------------
--- 31.09.15	| baek     | init
+-- 01.10.15	| baek     | init
+-- 2.10.15  | baek     | deleted zero-out (Port, Signal, Process)
+--                     | Renamed glitch -output in counter_reset
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -15,8 +17,7 @@ use ieee.numeric_std.all;
 
 entity counter is
 	port(	clk: 				in std_logic;
-			verification:	out std_logic; 
-			zero_out:		out std_logic
+			counter_reset:	out std_logic -- to detect glitches
 	);
 end entity;
 
@@ -26,24 +27,22 @@ end entity;
 ----------------------------------------------------------------------------------
 architecture rtl of counter is 
 
-signal  cnt: 		integer range 0 to 255 		:= 0;
+signal  cnt: 			integer range 0 to 255 	:= 0;
 signal  next_cnt: 	integer range 0 to 255 	:= 0;
-signal 	glitch: 	std_logic 						:= '0';  -- asynchronous
-signal 	next_zero: 	std_logic 					:= '0';
-signal 	zero: 		std_logic 					:= '0';
+signal  reset_cnt: 	std_logic 					:= '0';  -- asynchronous
 
 begin
 
 	-- clocked main prozess -------------------------------
-	ff: process(clk, glitch, next_zero)	
+	ff: process(clk, reset_cnt)	
 	begin	
 		-- asynchrounous
-		if (glitch = '1') then				
+		if (reset_cnt = '1') then				
 				cnt <= 0;	
 		-- synchrounous
 		elsif (rising_edge(clk)) then	
 				cnt <= next_cnt;	
-				zero <= next_zero;	
+				-- zero <= next_zero;	
 		end if;
 	end process;
 	
@@ -76,24 +75,14 @@ begin
 	begin	
 	   -- asynchronous
 		if (cnt = 158) then				
-				glitch <= '1';
+				reset_cnt <= '1';
 		else 				
-				glitch <= '0';
-		end if;		
-	end process;
-	
-	-- output logic process ---------------------------
-	output2:	process(cnt)	
-	begin	
-		if (cnt = 0) then				
-				next_zero <= '1';
-		else 				
-				next_zero <= '0';
+				reset_cnt <= '0';
 		end if;		
 	end process;
 	
 	
 	-- Concourent assignments ---------------------------
-	verification <= glitch;
-	zero_out <= zero;
+	counter_reset <= reset_cnt;
+
 end rtl;

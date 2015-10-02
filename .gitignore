@@ -19,15 +19,16 @@ FPGA/
 # Ordner nicht comitten
 **/synthese/db/
 **/synthese/output_files/
-**/synthese/simulation
-**/synthese/incremental_db
+**/synthese/simulation/
+**/synthese/incremental_db/
+
+Cyclone_II/synthese_3/db/*
+Cyclone_II/synthese_3/output_files/*
+Cyclone_II/synthese_3/simulation/*
+Cyclone_II/synthese_3/incremental_db/*
 
 **/synthese_3/db/
 **/synthese_3/output_files/
-**/synthese_3/simulation
-**/synthese_3/incremental_db
-
-
 
 # SIMULATION ......................................................
 
