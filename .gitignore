@@ -22,6 +22,10 @@ FPGA/
 **/synthese/simulation
 **/synthese/incremental_db
 
+**/synthese_3/db/
+**/synthese_3/output_files/
+**/synthese_3/simulation
+**/synthese_3/incremental_db
 
 
 
