@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Counter_irregularities
-Thu Oct  1 16:36:49 2015
+Fri Oct  2 16:19:44 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -10,12 +10,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Messages
 
 
 
@@ -41,20 +36,20 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Oct  1 16:36:49 2015            ;
+; Analysis & Synthesis Status        ; Failed - Fri Oct  2 16:19:44 2015                ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; Counter_irregularities                           ;
 ; Top-level Entity Name              ; top_counter_verification                         ;
 ; Family                             ; Cyclone II                                       ;
-; Total logic elements               ; 14                                               ;
-;     Total combinational functions  ; 14                                               ;
-;     Dedicated logic registers      ; 9                                                ;
-; Total registers                    ; 9                                                ;
-; Total pins                         ; 3                                                ;
-; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 0                                                ;
-; Embedded Multiplier 9-bit elements ; 0                                                ;
-; Total PLLs                         ; 0                                                ;
+; Total logic elements               ; N/A until Partition Merge                        ;
+;     Total combinational functions  ; N/A until Partition Merge                        ;
+;     Dedicated logic registers      ; N/A until Partition Merge                        ;
+; Total registers                    ; N/A until Partition Merge                        ;
+; Total pins                         ; N/A until Partition Merge                        ;
+; Total virtual pins                 ; N/A until Partition Merge                        ;
+; Total memory bits                  ; N/A until Partition Merge                        ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                        ;
+; Total PLLs                         ; N/A until Partition Merge                        ;
 +------------------------------------+--------------------------------------------------+
 
 
@@ -161,88 +156,13 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+--------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path     ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                      ; Library ;
-+--------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
-; ../vhdl/top_counter_verification.vhd ; yes             ; User VHDL File  ; /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/top_counter_verification.vhd ;         ;
-; ../vhdl/counter_3.vhd                ; yes             ; User VHDL File  ; /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd                ;         ;
-+--------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                 ;
-+---------------------------------------------+-------------------------------+
-; Resource                                    ; Usage                         ;
-+---------------------------------------------+-------------------------------+
-; Estimated Total logic elements              ; 14                            ;
-;                                             ;                               ;
-; Total combinational functions               ; 14                            ;
-; Logic element usage by number of LUT inputs ;                               ;
-;     -- 4 input functions                    ; 5                             ;
-;     -- 3 input functions                    ; 1                             ;
-;     -- <=2 input functions                  ; 8                             ;
-;                                             ;                               ;
-; Logic elements by mode                      ;                               ;
-;     -- normal mode                          ; 8                             ;
-;     -- arithmetic mode                      ; 6                             ;
-;                                             ;                               ;
-; Total registers                             ; 9                             ;
-;     -- Dedicated logic registers            ; 9                             ;
-;     -- I/O registers                        ; 0                             ;
-;                                             ;                               ;
-; I/O pins                                    ; 3                             ;
-; Embedded Multiplier 9-bit elements          ; 0                             ;
-; Maximum fan-out node                        ; counter:inst_counter|Equal0~2 ;
-; Maximum fan-out                             ; 10                            ;
-; Total fan-out                               ; 65                            ;
-; Average fan-out                             ; 2.50                          ;
-+---------------------------------------------+-------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
-; |top_counter_verification  ; 14 (0)            ; 9 (0)        ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |top_counter_verification                      ; work         ;
-;    |counter:inst_counter|  ; 14 (14)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_counter_verification|counter:inst_counter ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 9     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 8     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Oct  1 16:36:47 2015
+    Info: Processing started: Fri Oct  2 16:19:43 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Counter_irregularities -c Counter_irregularities
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/top_counter_verification.vhd
@@ -253,16 +173,27 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/k
     Info (12023): Found entity 1: counter
 Info (12127): Elaborating entity "top_counter_verification" for the top level hierarchy
 Info (12128): Elaborating entity "counter" for hierarchy "counter:inst_counter"
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 17 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 14 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 675 megabytes
-    Info: Processing ended: Thu Oct  1 16:36:49 2015
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:03
+Info (10041): Inferred latch for "q_z[0]" at counter_3.vhd(55)
+Info (10041): Inferred latch for "q_z[1]" at counter_3.vhd(55)
+Info (10041): Inferred latch for "q_z[2]" at counter_3.vhd(55)
+Info (10041): Inferred latch for "q_z[4]" at counter_3.vhd(55)
+Info (10041): Inferred latch for "q_z[5]" at counter_3.vhd(55)
+Info (10041): Inferred latch for "q_z[6]" at counter_3.vhd(55)
+Info (10041): Inferred latch for "q_z[7]" at counter_3.vhd(55)
+Error (10028): Can't resolve multiple constant drivers for net "cnt[7]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (10029): Constant driver at counter_3.vhd(44) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 44
+Error (10028): Can't resolve multiple constant drivers for net "cnt[6]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (10028): Can't resolve multiple constant drivers for net "cnt[5]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (10028): Can't resolve multiple constant drivers for net "cnt[4]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (10028): Can't resolve multiple constant drivers for net "cnt[3]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (10028): Can't resolve multiple constant drivers for net "cnt[2]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (10028): Can't resolve multiple constant drivers for net "cnt[1]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (10028): Can't resolve multiple constant drivers for net "cnt[0]" at counter_3.vhd(71) File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_3.vhd Line: 71
+Error (12152): Can't elaborate user hierarchy "counter:inst_counter" File: /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/top_counter_verification.vhd Line: 47
+Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 10 errors, 0 warnings
+    Error: Peak virtual memory: 609 megabytes
+    Error: Processing ended: Fri Oct  2 16:19:44 2015
+    Error: Elapsed time: 00:00:01
+    Error: Total CPU time (on all processors): 00:00:02
 
 

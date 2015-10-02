@@ -1,11 +1,9 @@
 |top_counter_verification
 CLOCK_50 => counter:inst_counter.clk
-GPIO_0_0 <= counter:inst_counter.verification
-GPIO_0_1 <= counter:inst_counter.zero_out
+GPIO_0_0 <= counter:inst_counter.counter_reset[3]
 
 
 |top_counter_verification|counter:inst_counter
-clk => zero.CLK
 clk => cnt[0].CLK
 clk => cnt[1].CLK
 clk => cnt[2].CLK
@@ -14,7 +12,13 @@ clk => cnt[4].CLK
 clk => cnt[5].CLK
 clk => cnt[6].CLK
 clk => cnt[7].CLK
-verification <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
-zero_out <= zero.DB_MAX_OUTPUT_PORT_TYPE
+counter_reset[0] <= <GND>
+counter_reset[1] <= <GND>
+counter_reset[2] <= <GND>
+counter_reset[3] <= cnt[3].DB_MAX_OUTPUT_PORT_TYPE
+counter_reset[4] <= <GND>
+counter_reset[5] <= <GND>
+counter_reset[6] <= <GND>
+counter_reset[7] <= <GND>
 
 

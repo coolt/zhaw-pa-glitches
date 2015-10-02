@@ -9,6 +9,7 @@
 -- 01.10.15	| baek     | init
 -- 2.10.15  | baek     | deleted zero-out (Port, Signal, Process)
 --                     | Renamed glitch -output in counter_reset
+-- 2.10.15  | baek     | Signal set out of 2. process
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -30,6 +31,9 @@ architecture rtl of counter is
 signal  cnt: 			integer range 0 to 255 	:= 0;
 signal  next_cnt: 	integer range 0 to 255 	:= 0;
 signal  reset_cnt: 	std_logic 					:= '0';  -- asynchronous
+signal  q:           std_logic_vector(7 downto 0);
+signal  q_z:         std_logic_vector(7 downto 0);
+
 
 begin
 
@@ -42,27 +46,31 @@ begin
 		-- synchrounous
 		elsif (rising_edge(clk)) then	
 				cnt <= next_cnt;	
-				-- zero <= next_zero;	
 		end if;
 	end process;
+
 	
 	-- second clocked prozess ------------------------------------
-   -- creating logic nodes (delays with ff)
+   -- creating logic nodes (delays with ff)	
+	delay: process(ALL)		
+	begin		
 	
---	delay: process(clk, glitch, next_zero)	
---	begin	
---		-- asynchrounous
---		if (q(3) = '1') then				
---				q_z(3) <= '1';	
---		ELSE q_z(3) <= '0';	
---		-- synchrounous
---		elsif (rising_edge(clk)) then	
---				Q_Z(3) <= q(3);	
---				zero <= next_zero;	
---		end if;
---	end process;
-	
-	
+	-- asynchrounous logic		
+		if (q(3) = '1') then				
+				q_z(3) <= '1';	
+		elsif(q(3) = '0')then 
+				q_z(3) <= '0';	
+		
+	-- synchrounous
+		elsif (rising_edge(clk)) then	
+				q_z <= q;
+		end if;
+
+	end process;	
+		q <= std_logic_vector(to_unsigned(cnt, 8));
+		cnt <= to_integer(unsigned(q_z));
+
+		
 	-- input logic process ----------------------------
 	count_up: process(cnt)	
 	begin	

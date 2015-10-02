@@ -22,13 +22,13 @@ FPGA/
 **/synthese/simulation/
 **/synthese/incremental_db/
 
-Cyclone_II/synthese_3/db/*
-Cyclone_II/synthese_3/output_files/*
-Cyclone_II/synthese_3/simulation/*
-Cyclone_II/synthese_3/incremental_db/*
+# don't work: ignored with   -> git checkout <directory>
+Cyclone_II/synthese_3/db/
+Cyclone_II/synthese_3/output_files/
+Cyclone_II/synthese_3/simulation/
+Cyclone_II/synthese_3/incremental_db/
 
-**/synthese_3/db/
-**/synthese_3/output_files/
+
 
 # SIMULATION ......................................................
 

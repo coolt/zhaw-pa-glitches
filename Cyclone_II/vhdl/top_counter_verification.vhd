@@ -34,7 +34,7 @@ ARCHITECTURE blocks OF top_counter_verification IS
 
 		COMPONENT counter
 				  PORT(	clk: 				IN std_logic;
-							counter_reset:	OUT std_logic 
+							counter_reset:	OUT std_logic ---- _vector(7 downto 0)
 					);
 		END COMPONENT; 
 		
@@ -46,7 +46,7 @@ ARCHITECTURE blocks OF top_counter_verification IS
    
 		inst_counter: counter
 		PORT MAP(		clk 				=> CLOCK_50,
-							counter_reset	=> GPIO_0_0	
+							counter_reset	=> GPIO_0_0	 --- counter_reset(3)
 		);
 	 
 
