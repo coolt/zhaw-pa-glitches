@@ -7,11 +7,8 @@
 -- Change History
 -- Date     |Name      |Modification
 ------------|----------|-------------------------------------------------------
--- 21.09.15	| baek     | init
--- 23.09.15	| baek     | all components in counter-block included
--- 29.09.15 | baek     | excluded external reset (Key0)
---                     | Redesign for Board De2
--- 2.10.15  | baek     | Delted Zero_output,  Renamed verification in counter_reset
+-- 2.10.15  | baek     | init: Get Latency trough paths through GPIO-Pins
+
 -------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -34,7 +31,7 @@ ARCHITECTURE blocks OF top_counter_verification IS
 
 		COMPONENT counter
 				  PORT(	clk: 				IN std_logic;
-							counter_reset:	OUT std_logic ---- _vector(7 downto 0)
+							counter_reset:	OUT std_logic
 					);
 		END COMPONENT; 
 		
@@ -46,7 +43,7 @@ ARCHITECTURE blocks OF top_counter_verification IS
    
 		inst_counter: counter
 		PORT MAP(		clk 				=> CLOCK_50,
-							counter_reset	=> GPIO_0_0	 --- counter_reset(3)
+							counter_reset	=> GPIO_0_0	 
 		);
 	 
 
