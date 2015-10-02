@@ -82,7 +82,7 @@ begin
 	output: process(cnt)	
 	begin	
 	   -- asynchronous
-		if (cnt = 158) then				
+		if (cnt = 212) then				
 				reset_cnt <= '1';
 		else 				
 				reset_cnt <= '0';
