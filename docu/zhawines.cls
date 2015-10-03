@@ -10,15 +10,12 @@
 
 % Language settings to use babel correctly and adapt the title page
 % and references
-\DeclareOption{german}{
-  \PassOptionsToClass{german}{babel}
-  \renewcommand{\language}{german}
-  
+\DeclareOption{ngerman}{
+  \PassOptionsToClass{ngerman}{babel}
 }
 
 \DeclareOption{english}{
   \PassOptionsToClass{english}{babel}
-  \renewcommand{\language}{english}
 }
 
 \ProcessOptions
@@ -78,7 +75,7 @@
 
 % Place the logo on top left
 \begin{flushleft}
-	\ifthenelse{\equal{\language}{german}}
+	\ifthenelse{\equal{\languagename}{ngerman}}
 	{\includegraphics[height=30mm]{images/logos/de-zhaw-ines-rgb.png}}
 	{\includegraphics[height=30mm]{images/logos/en-zhaw-ines-rgb.png}} 
 \end{flushleft}
@@ -98,7 +95,7 @@
 % School and Institute
 \begin{flushleft}
 	\LARGE
-	\ifthenelse{\equal{\language}{german}}
+	\ifthenelse{\equal{\languagename}{ngerman}}
 	{\textsc{Zürcher Hochschule für Angewandte Wissenschaften}}
 	{\textsc{Zurich University of Applied Sciences}} \\
     \vspace*{1cm}
@@ -110,17 +107,17 @@
 \vskip 5em
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{ p{3cm} l }
-\ifthenelse{\equal{\language}{german}}{Autoren}{Authors} & \parbox[t]{5cm}{\@author} \\
+\ifthenelse{\equal{\languagename}{ngerman}}{Autoren}{Authors} & \parbox[t]{5cm}{\@author} \\
 \end{tabular}
 \vskip 1em
 \begin{tabular}{ p{3cm} l }
-\ifthenelse{\equal{\language}{german}}{Letzte Änderung}{Last changes} & \parbox[t]{5cm}{\@date} \\
+\ifthenelse{\equal{\languagename}{ngerman}}{Letzte Änderung}{Last changes} & \parbox[t]{5cm}{\@date} \\
 \end{tabular}
 
 % Second page with the contact information
 \newpage
 \begin{flushleft}
-\ifthenelse{\equal{\language}{german}}{\textbf{Kontakt Adresse}}{\textbf{Contact Information}}\newline
+\ifthenelse{\equal{\languagename}{\string ngerman}}{\textbf{Kontakt Adresse}}{\textbf{Contact Information}}\newline
 c/o Inst. of Embedded Systems (InES)\newline
 Zürcher Hochschule für Angewandte Wissenschaften \newline
 Technikumstrasse 22\newline
@@ -170,8 +167,3 @@ Homepage: \url{http://www.ines.zhaw.ch}\newline
 }
 
 \lstloadlanguages{C++}
-                                   
-
-
-
-
