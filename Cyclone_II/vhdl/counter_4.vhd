@@ -10,6 +10,12 @@
 -- 2.10.15  | baek     | Add: singal cnt_i (so cnt is not touched)
 --                     | 
 -------------------------------------------------------------------------------
+-- To Do:
+-- Change 8 std_logic IO to std_logic_vector
+-- Change cnt type from int -> std_logic_vector
+-- Deled typcaste bevor q 
+-------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -18,7 +24,7 @@ use ieee.numeric_std.all;
 entity counter_4 is
 	port(	clk: 				in std_logic;
 			counter_reset:	out std_logic; -- to detect glitches
-			-- Test routing
+			-- Routing Ports
 			q_0_out:			out std_logic;
 			q_1_out:			out std_logic;
 			q_2_out:			out std_logic;
@@ -55,7 +61,6 @@ signal  q_z:         std_logic_vector(7 downto 0) := "00000000";
 begin
 
 	-- clocked main prozess -------------------------------
-	-- reset counter
 	ff: process(clk, reset_cnt)	
 	begin	
 		-- asynchrounous
@@ -67,14 +72,30 @@ begin
 		end if;
 	end process;
 
-	
+		-- typcast
 		q <= std_logic_vector(to_unsigned(cnt, 8));
 
 		-- delay because of routing trough GPIO-Pins
-		routing: process(q, q_z)  -----------------------------------------, q_0in
+		routing: process(q, q_z, q_0_in, q_1_in, q_2_in, q_3_in, q_4_in, q_5_in, q_6_in,q_7_in)  
 		begin
+		  -- Assign Signal q to GPIO Ports
 		  q_0_out  <=  q(0);
-		-- q(0)      <=   q_0_in;
+		  q_1_out  <=  q(1);
+		  q_2_out  <=  q(2);
+		  q_3_out  <=  q(3);
+		  q_4_out  <=  q(4);
+		  q_5_out  <=  q(5);
+		  q_6_out  <=  q(6);
+		  q_7_out  <=  q(7);
+		  -- Read Signal q_z from GPIO Ports
+		  q_z(0)	  <=  q_0_in;
+		  q_z(1)	  <=  q_1_in;
+		  q_z(2)	  <=  q_2_in;
+		  q_z(3)	  <=  q_3_in;
+		  q_z(4)	  <=  q_4_in;
+		  q_z(5)	  <=  q_5_in;
+		  q_z(6)	  <=  q_6_in;
+		  q_z(7)	  <=  q_7_in;
 		end process;
 	
 	
