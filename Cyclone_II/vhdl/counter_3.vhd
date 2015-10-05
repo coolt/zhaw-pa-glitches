@@ -16,7 +16,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 
-entity counter is
+entity counter_3 is
 	port(	clk: 				in std_logic;
 			counter_reset:	out std_logic -- to detect glitches
 	);
@@ -26,7 +26,7 @@ end entity;
 ----------------------------------------------------------------------------------
 -- Architecture 
 ----------------------------------------------------------------------------------
-architecture rtl of counter is 
+architecture rtl of counter_3 is 
 
 signal  cnt: 			integer range 0 to 255 	:= 0;
 signal  next_cnt: 	integer range 0 to 255 	:= 0;

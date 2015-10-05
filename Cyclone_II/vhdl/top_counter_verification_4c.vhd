@@ -16,7 +16,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
  
-ENTITY top_counter_verification_4b IS
+ENTITY top_counter_verification_4c IS
       PORT(    CLOCK_50: 			IN std_logic;
 					GPIO_0_0:		   OUT std_logic; 
 					-- Test routing
@@ -38,17 +38,17 @@ ENTITY top_counter_verification_4b IS
 					GPIO_1_13:			IN std_logic;
 					GPIO_1_15:			IN std_logic
 		);
-END top_counter_verification_4b;
+END top_counter_verification_4c;
 
 
 ----------------------------------------------------------------------------------
 -- Architecture 
 ----------------------------------------------------------------------------------
 
-ARCHITECTURE blocks OF top_counter_verification_4b IS
+ARCHITECTURE blocks OF top_counter_verification_4c IS
 
 
-		COMPONENT counter_4_b
+		COMPONENT counter_4_c
 				  PORT(	clk: 				IN std_logic;
 							counter_reset:	OUT std_logic;
 							-- Test routing
@@ -78,7 +78,7 @@ ARCHITECTURE blocks OF top_counter_verification_4b IS
 	 -- Instantiation of components: 
 		BEGIN
    
-		inst_counter: counter_4_b
+		inst_counter: counter_4_c
 		PORT MAP(		clk 				=> CLOCK_50,
 							counter_reset	=> GPIO_0_0,	
 							-- Test routing
