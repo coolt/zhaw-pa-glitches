@@ -15,7 +15,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 
-entity counter is
+entity counter_4 is
 	port(	clk: 				in std_logic;
 			counter_reset:	out std_logic; -- to detect glitches
 			-- Test routing
@@ -28,7 +28,7 @@ end entity;
 ----------------------------------------------------------------------------------
 -- Architecture 
 ----------------------------------------------------------------------------------
-architecture rtl of counter is 
+architecture rtl of counter_4 is 
 
 signal  cnt: 			integer range 0 to 255 	:= 0;
 signal  next_cnt: 	integer range 0 to 255 	:= 0;
@@ -57,10 +57,10 @@ begin
 		q <= std_logic_vector(to_unsigned(cnt, 8));
 
 		-- delay because of routing trough GPIO-Pins
-		routing: process(q, q_z, q_0in)
+		routing: process(q, q_z)  -----------------------------------------, q_0in
 		begin
 		  q_0_out  <=  q(0);
-		q(0)      <=   q_0_in;
+		-- q(0)      <=   q_0_in;
 		end process;
 	
 	
