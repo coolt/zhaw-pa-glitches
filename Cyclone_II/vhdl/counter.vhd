@@ -17,8 +17,8 @@ use ieee.numeric_std.all;
 
 entity counter is
 	port(	clk: 				in std_logic;
-			verification:	out std_logic; 
-			zero_out:		out std_logic
+			counter_reset:	out std_logic; 
+			counter_synchron:		out std_logic
 	);
 end entity;
 
@@ -80,6 +80,6 @@ begin
 	
 	
 	-- Concourent assignments ---------------------------
-	verification <= glitch;
-	zero_out <= zero;
+	counter_reset <= glitch;
+	counter_synchron <= zero;
 end rtl;
