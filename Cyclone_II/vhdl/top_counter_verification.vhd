@@ -32,12 +32,12 @@ END top_counter_verification;
 ARCHITECTURE blocks OF top_counter_verification IS
 
 
-		COMPONENT counter
+		COMPONENT counter_4
 				  PORT(	clk: 				IN std_logic;
 							counter_reset:	OUT std_logic;
 							-- Test routing
 							q_0_out:			OUT std_logic;
-							q_0_in:			IN  std_logic
+							q_0_in:			IN  std_logic_vector
 					);
 		END COMPONENT; 
 		
@@ -47,12 +47,12 @@ ARCHITECTURE blocks OF top_counter_verification IS
 	 -- Instantiation of components: 
 		BEGIN
    
-		inst_counter: counter
+		inst_counter: counter_4
 		PORT MAP(		clk 				=> CLOCK_50,
 							counter_reset	=> GPIO_0_0,	
 							-- Test routing
 							q_0_out			=> GPIO_1_0,
-							q_0_in			=> GPIO_1_1
+							q_0_in(0)		=> GPIO_1_1
 		);
 	 
 

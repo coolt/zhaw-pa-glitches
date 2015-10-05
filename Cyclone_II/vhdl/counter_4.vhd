@@ -54,26 +54,10 @@ begin
 	end process;
 
 	
---	-- second clocked prozess ------------------------------------
---   -- creating logic nodes (delays with ff)	
---	delay: process(clk, q, q_z)		
---	begin		
---	-- asynchrounous logic		
---		if (q(3) = '1') then				
---				q_z(3) <= '1';	
---		--elsif(q(3) = '0')then 				-- producing a latch
---				--q_z(3) <= '0';	
---		
---	-- synchrounous
---		--elsif (rising_edge(clk)) then	
---				-- q_z <= q;
---		end if;
---	end process;
-	
 		q <= std_logic_vector(to_unsigned(cnt, 8));
 
 		-- delay because of routing trough GPIO-Pins
-		routing: process(q, q_z)
+		routing: process(q, q_z, q_0in)
 		begin
 		  q_0_out  <=  q(0);
 		q(0)      <=   q_0_in;
