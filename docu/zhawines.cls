@@ -69,13 +69,20 @@
 \newcommand{\email}[1]{\renewcommand{\Email}{#1}}
 \renewcommand{\and}{\\}  % separate the authors with a line break
 
+% Commands for the additional roles for Bachelor Thesis
+\newcommand{\Betreuer}{Hans Betreuer}
+\newcommand{\betreuer}[1]{\renewcommand{\Betreuer}{#1}}
+\newcommand{\Nebenbetreuer}{Fritz Nebelbetreuer}
+\newcommand{\nebenbetreuer}[1]{\renewcommand{\Nebenbetreuer}{#1}}
+
+
 \renewcommand{\maketitle}{
 \thispagestyle{empty}
 \pagestyle{empty}
 
 % Place the logo on top left
 \begin{flushleft}
-	\ifthenelse{\equal{\languagename}{ngerman}}
+	\ifthenelse{\equal{\languagename}{\string ngerman}}
 	{\includegraphics[height=30mm]{images/logos/de-zhaw-ines-rgb.png}}
 	{\includegraphics[height=30mm]{images/logos/en-zhaw-ines-rgb.png}} 
 \end{flushleft}
@@ -95,7 +102,7 @@
 % School and Institute
 \begin{flushleft}
 	\LARGE
-	\ifthenelse{\equal{\languagename}{ngerman}}
+	\ifthenelse{\equal{\languagename}{\string ngerman}}
 	{\textsc{Zürcher Hochschule für Angewandte Wissenschaften}}
 	{\textsc{Zurich University of Applied Sciences}} \\
     \vspace*{1cm}
@@ -106,12 +113,24 @@
 % Authors and Date
 \vskip 5em
 \renewcommand{\arraystretch}{1.5}
+
 \begin{tabular}{ p{3cm} l }
-\ifthenelse{\equal{\languagename}{ngerman}}{Autoren}{Authors} & \parbox[t]{5cm}{\@author} \\
+\ifthenelse{\equal{\languagename}{\string ngerman}}{Autoren}{Authors} & \parbox[t]{5cm}{\@author} \\
 \end{tabular}
+
 \vskip 1em
 \begin{tabular}{ p{3cm} l }
-\ifthenelse{\equal{\languagename}{ngerman}}{Letzte Änderung}{Last changes} & \parbox[t]{5cm}{\@date} \\
+\ifthenelse{\equal{\languagename}{\string ngerman}}{Hauptbetreuer}{betr} & \parbox[t]{5cm}{\betreuer} \\
+\end{tabular}
+
+\vskip 1em
+\begin{tabular}{ p{3cm} l }
+\ifthenelse{\equal{\languagename}{\string ngerman}}{Nebenbetreuer}{neben} & \parbox[t]{5cm}{\nebenbetreuer} \\
+\end{tabular}
+
+\vskip 1em
+\begin{tabular}{ p{3cm} l }
+\ifthenelse{\equal{\languagename}{\string ngerman}}{Datum}{dat} & \parbox[t]{5cm}{\@date} \\
 \end{tabular}
 
 % Second page with the contact information
