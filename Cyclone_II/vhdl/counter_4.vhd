@@ -20,7 +20,21 @@ entity counter_4 is
 			counter_reset:	out std_logic; -- to detect glitches
 			-- Test routing
 			q_0_out:			out std_logic;
-			q_0_in:			in  std_logic
+			q_1_out:			out std_logic;
+			q_2_out:			out std_logic;
+			q_3_out:			out std_logic;
+			q_4_out:			out std_logic;
+			q_5_out:			out std_logic;
+			q_6_out:			out std_logic;
+			q_7_out:			out std_logic;			
+			q_0_in:			in  std_logic;
+			q_1_in:			in  std_logic;
+			q_2_in:			in  std_logic;
+			q_3_in:			in  std_logic;
+			q_4_in:			in  std_logic;
+			q_5_in:			in  std_logic;
+			q_6_in:			in  std_logic;
+			q_7_in:			in  std_logic
 	);
 end entity;
 
