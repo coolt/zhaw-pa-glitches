@@ -49,14 +49,16 @@ end entity;
 ----------------------------------------------------------------------------------
 architecture rtl of counter_5 is 
 
-constant cnt_max:    std_logic_vector(7 downto 0):= "10011111";  -- 159
+constant cnt_max:    std_logic_vector(7 downto 0):= "00000111";  -- 159 " 10011111"
 
-signal  cnt: 			integer range 0 to 7 	:= 0;
-signal  next_cnt: 	integer range 0 to 7 	:= 0;
+signal  cnt: 			integer range 0 to 15 	:= 0;
+signal  next_cnt: 	integer range 0 to 15 	:= 0;
 signal  reset_cnt: 	std_logic 					:= '0';  -- asynchronous
 signal  q:           std_logic_vector(7 downto 0) := "00000000";
 signal  q_z:         std_logic_vector(7 downto 0) := "00000000";
 signal  delay:			std_logic					:= '0';
+signal  zero:			std_logic					:= '0';
+signal  zero_next:			std_logic					:= '0';
 
 begin
 
@@ -64,17 +66,14 @@ begin
 	ff: process(clk)	
 	begin			
 		if (rising_edge(clk)) then	
-				cnt <= next_cnt;	
+				cnt <= next_cnt;
+			zero <= zero_next;	
 		end if;
 	end process;
 
-		-- typcast
+		-- type conversion
 		q <= std_logic_vector(to_unsigned(cnt, 8));
 
-		-- delay because of routing trough GPIO-Pins
-		routing: process(q, q_z, q_0_in, q_1_in, q_2_in, q_3_in, q_4_in, q_5_in, q_6_in,q_7_in)  
-		begin
-		  -- Assign Signal q to GPIO Ports
 		  q_0_out  <=  q(0);   
 		  q_1_out  <=  q(1);
 		  q_2_out  <=  q(2);
@@ -82,7 +81,7 @@ begin
 		  q_z(4)   <=  q(4);     -- as quick as possible (no routing)
 		  q_5_out  <=  q(5);
 		  q_6_out  <=  q(6);   
-		  q_7_out  <=  q(7);
+		  --q_7_out  <=  q(7);
 		  -- Read Signal q_z from GPIO Ports
 		  q_z(0)	  <=  q_0_in;   
 		  q_z(1)	  <=  q_1_in;
@@ -92,33 +91,44 @@ begin
 		  q_z(5)	  <=  q_5_in;
 		  q_z(6)	  <=  q_6_in;  
 		  q_z(7)	  <=  q_7_in;
-		end process;
-	
-		-- additional delay
-		delay_routing : process(q_3_in)
-		begin
-				delay	  <=  not q_3_in;	
-				q_z(3)  <=  not delay;
-		end process;
 	
 	-- input logic process ----------------------------
-	count_up: process(cnt)	
+	count_up: process(ALL)	
 	begin	
 		-- asynchronous
 		next_cnt <= cnt + 1;
 	end process;
 	
 	-- output logic process ---------------------------
-	output: process(q_z)	
+	output: process(ALL)	
 	begin	
 	   -- asynchronous
-		if (q_z = cnt_max) then				
-				reset_cnt <= '1';
-		else 				
-				reset_cnt <= '0';
-		end if;		
+		if q_z(0) = '1' AND q_z(1) = '1' AND q(2) = '1' AND q(3) = '1'
+		THEN reset_cnt <= '1';
+		ELSE reset_cnt <= '0';
+		END IF;
+		
+		
+--		if (q_z = cnt_max) then				
+--				reset_cnt <= '1';
+--		else 				
+--				reset_cnt <= '0';
+--		end if;		
 	end process;
 	
+		check: process(ALL)	
+	begin	
+	   -- asynchronous
+		if cnt = 15
+		THEN zero_next <= '1';
+		ELSE zero_next <= '0';
+		END IF;
+		
+
+--		end if;		
+	end process;
+
+	q_7_out <= zero;
 	
 	-- Concourent assignments ---------------------------
 	counter_reset <= reset_cnt;
