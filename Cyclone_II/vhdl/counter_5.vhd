@@ -49,6 +49,8 @@ end entity;
 ----------------------------------------------------------------------------------
 architecture rtl of counter_5 is 
 
+constant cnt_max:    std_logic_vector(7 downto 0):= "10011111";  -- 159
+
 signal  cnt: 			integer range 0 to 7 	:= 0;
 signal  next_cnt: 	integer range 0 to 7 	:= 0;
 signal  reset_cnt: 	std_logic 					:= '0';  -- asynchronous
@@ -110,7 +112,7 @@ begin
 	output: process(q_z)	
 	begin	
 	   -- asynchronous
-		if (q_z = "10011110") then			-- = 158	
+		if (q_z = cnt_max) then				
 				reset_cnt <= '1';
 		else 				
 				reset_cnt <= '0';
