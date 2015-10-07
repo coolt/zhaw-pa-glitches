@@ -5,29 +5,20 @@
 *~
 *qar
 *bak
-*.qws
-.asm.rpt
-
-
-
-
-# SYNTHESE.........................................................
-
-# Ordner nicht comitten 
-# Alternative: Ordner lokal aus Git werfen (löschen)
-# git rm -r ../synthese/db/  über Konsole
-
-**/synthese/db/
-**/synthese/output_files/
-**/synthese/simulation/
-**/synthese/incremental_db/
-
-# don't work: ignored with   -> git checkout <directory>
-Cyclone_II/synthese_3/db/
-Cyclone_II/synthese_3/output_files/
-Cyclone_II/synthese_3/simulation/
-Cyclone_II/synthese_3/incremental_db/
-
-Cyclone_II/Synthese_4_b/*
-
-
+*qws
+*kpt
+*done
+*rpt
+*summary
+*smsg
+*jdi
+*qarlog
+*qws
+*qsf
+*qdf
+ 
+# SYNTHESE.
+**/**/incremental_db/*
+**/**/db/*
+**/**/output_files/*
+**/**/simulation/*
