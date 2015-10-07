@@ -1,0 +1,44 @@
+|top_counter_verification_5
+CLOCK_50 => counter_5:inst_counter.clk
+GPIO_0_0 <= counter_5:inst_counter.counter_reset
+GPIO_1_0 <= counter_5:inst_counter.q_0_out
+GPIO_1_2 <= counter_5:inst_counter.q_1_out
+GPIO_1_4 <= counter_5:inst_counter.q_2_out
+GPIO_1_6 <= counter_5:inst_counter.q_3_out
+GPIO_1_8 <= counter_5:inst_counter.q_4_out
+GPIO_1_10 <= counter_5:inst_counter.q_5_out
+GPIO_1_12 <= counter_5:inst_counter.q_6_out
+GPIO_1_14 <= counter_5:inst_counter.q_7_out
+GPIO_1_1 => counter_5:inst_counter.q_0_in
+GPIO_1_3 => counter_5:inst_counter.q_1_in
+GPIO_1_5 => counter_5:inst_counter.q_2_in
+GPIO_1_7 => counter_5:inst_counter.q_3_in
+GPIO_1_9 => counter_5:inst_counter.q_4_in
+GPIO_1_11 => counter_5:inst_counter.q_5_in
+GPIO_1_13 => counter_5:inst_counter.q_6_in
+GPIO_1_15 => counter_5:inst_counter.q_7_in
+
+
+|top_counter_verification_5|counter_5:inst_counter
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+counter_reset <= <GND>
+q_0_out <= cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+q_1_out <= cnt[1].DB_MAX_OUTPUT_PORT_TYPE
+q_2_out <= cnt[2].DB_MAX_OUTPUT_PORT_TYPE
+q_3_out <= <GND>
+q_4_out <= comb.DB_MAX_OUTPUT_PORT_TYPE
+q_5_out <= <GND>
+q_6_out <= <GND>
+q_7_out <= <GND>
+q_0_in => ~NO_FANOUT~
+q_1_in => ~NO_FANOUT~
+q_2_in => ~NO_FANOUT~
+q_3_in => ~NO_FANOUT~
+q_4_in => ~NO_FANOUT~
+q_5_in => ~NO_FANOUT~
+q_6_in => ~NO_FANOUT~
+q_7_in => ~NO_FANOUT~
+
+
