@@ -1,9 +1,10 @@
-|top_counter_verification
-CLOCK_50 => counter:inst_counter.clk
-GPIO_0_0 <= counter:inst_counter.counter_reset
+|top_counter_verification_3
+CLOCK_50 => counter_3:inst_counter.clk
+GPIO_0_0 <= counter_3:inst_counter.counter_reset
+GPIO_0_1 <= comb.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|top_counter_verification|counter:inst_counter
+|top_counter_verification_3|counter_3:inst_counter
 clk => cnt[0].CLK
 clk => cnt[1].CLK
 clk => cnt[2].CLK

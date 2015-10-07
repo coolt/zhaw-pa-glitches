@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Counter_irregularities
-Mon Oct  5 12:06:57 2015
+Mon Oct  5 16:45:49 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -41,7 +41,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Oct  5 12:06:57 2015            ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct  5 16:45:49 2015            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; Counter_irregularities                           ;
 ; Top-level Entity Name              ; top_counter_verification_4b                      ;
@@ -157,11 +157,12 @@ applicable agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -170,33 +171,33 @@ applicable agreement for further details.
 +-----------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path        ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                         ; Library ;
 +-----------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
-; ../vhdl/counter_4_async_routing.vhd     ; yes             ; User VHDL File  ; /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_4_async_routing.vhd     ;         ;
+; ../vhdl/counter_4_b.vhd                 ; yes             ; User VHDL File  ; /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_4_b.vhd                 ;         ;
 ; ../vhdl/top_counter_verification_4b.vhd ; yes             ; User VHDL File  ; /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/top_counter_verification_4b.vhd ;         ;
 +-----------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                              ;
-+--------------------------+-----------------------------------------------+
-; Resource                 ; Usage                                         ;
-+--------------------------+-----------------------------------------------+
-; I/O pins                 ; 18                                            ;
-; DSP block 9-bit elements ; 0                                             ;
-; Maximum fan-out node     ; counter_4_async_routing:inst_counter|Equal0~2 ;
-; Maximum fan-out          ; 9                                             ;
-; Total fan-out            ; 74                                            ;
-; Average fan-out          ; 1.35                                          ;
-+--------------------------+-----------------------------------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++--------------------------+-----------------------------------+
+; Resource                 ; Usage                             ;
++--------------------------+-----------------------------------+
+; I/O pins                 ; 18                                ;
+; DSP block 9-bit elements ; 0                                 ;
+; Maximum fan-out node     ; counter_4_b:inst_counter|Equal0~2 ;
+; Maximum fan-out          ; 9                                 ;
+; Total fan-out            ; 74                                ;
+; Average fan-out          ; 1.35                              ;
++--------------------------+-----------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                  ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
-; |top_counter_verification_4b              ; 11 (0)            ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 18   ; 0            ; |top_counter_verification_4b                                      ; work         ;
-;    |counter_4_async_routing:inst_counter| ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |top_counter_verification_4b|counter_4_async_routing:inst_counter ; work         ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                          ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------+--------------+
+; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Library Name ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------+--------------+
+; |top_counter_verification_4b  ; 11 (0)            ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 18   ; 0            ; |top_counter_verification_4b                          ; work         ;
+;    |counter_4_b:inst_counter| ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |top_counter_verification_4b|counter_4_b:inst_counter ; work         ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+-------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -230,20 +231,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Oct  5 12:06:54 2015
+    Info: Processing started: Mon Oct  5 16:45:46 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Counter_irregularities -c Counter_irregularities
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
-Info (12021): Found 2 design units, including 1 entities, in source file /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_4_async_routing.vhd
-    Info (12022): Found design unit 1: counter_4_async_routing-rtl
-    Info (12023): Found entity 1: counter_4_async_routing
+Info (12021): Found 2 design units, including 1 entities, in source file /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/counter_4_b.vhd
+    Info (12022): Found design unit 1: counter_4_b-rtl
+    Info (12023): Found entity 1: counter_4_b
 Info (12021): Found 2 design units, including 1 entities, in source file /home/katrin/Documents/a_PA_glitches/Cyclone_II/vhdl/top_counter_verification_4b.vhd
     Info (12022): Found design unit 1: top_counter_verification_4b-blocks
     Info (12023): Found entity 1: top_counter_verification_4b
 Info (12127): Elaborating entity "top_counter_verification_4b" for the top level hierarchy
-Info (12128): Elaborating entity "counter_4_async_routing" for hierarchy "counter_4_async_routing:inst_counter"
-Warning (10541): VHDL Signal Declaration warning at counter_4_async_routing.vhd(31): used implicit default value for signal "q_0_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at counter_4_async_routing.vhd(37): used implicit default value for signal "q_6_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10492): VHDL Process Statement warning at counter_4_async_routing.vhd(108): signal "delay" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "counter_4_b" for hierarchy "counter_4_b:inst_counter"
+Warning (10541): VHDL Signal Declaration warning at counter_4_b.vhd(31): used implicit default value for signal "q_0_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at counter_4_b.vhd(37): used implicit default value for signal "q_6_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at counter_4_b.vhd(108): signal "delay" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "GPIO_1_0" is stuck at GND
     Warning (13410): Pin "GPIO_1_12" is stuck at GND
@@ -258,8 +259,8 @@ Info (21057): Implemented 29 device resources after synthesis - the final resour
     Info (21059): Implemented 9 output pins
     Info (21061): Implemented 11 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 710 megabytes
-    Info: Processing ended: Mon Oct  5 12:06:57 2015
+    Info: Peak virtual memory: 706 megabytes
+    Info: Processing ended: Mon Oct  5 16:45:49 2015
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

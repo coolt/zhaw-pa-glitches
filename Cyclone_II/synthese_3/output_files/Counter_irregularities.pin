@@ -449,7 +449,7 @@ GND*                         : J18       :        :                   :         
 VCCIO5                       : J19       : power  :                   : 2.5V    : 5         :                
 GND*                         : J20       :        :                   :         : 5         :                
 GND*                         : J21       :        :                   :         : 5         :                
-GND*                         : J22       :        :                   :         : 5         :                
+GPIO_0_1                     : J22       : output : 2.5 V             :         : 5         : Y              
 GND*                         : J23       :        :                   :         : 5         :                
 GND*                         : J24       :        :                   :         : 5         :                
 GND*                         : J25       :        :                   :         : 5         :                

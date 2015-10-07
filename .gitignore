@@ -6,17 +6,17 @@
 *qar
 *bak
 *.qws
+.asm.rpt
 
 
-# Ordner 
-lab2_proj/
-DTP_2_Synthesizer/
-FPGA/
 
 
 # SYNTHESE.........................................................
 
-# Ordner nicht comitten
+# Ordner nicht comitten 
+# Alternative: Ordner lokal aus Git werfen (löschen)
+# git rm -r ../synthese/db/  über Konsole
+
 **/synthese/db/
 **/synthese/output_files/
 **/synthese/simulation/
@@ -28,42 +28,6 @@ Cyclone_II/synthese_3/output_files/
 Cyclone_II/synthese_3/simulation/
 Cyclone_II/synthese_3/incremental_db/
 
+Cyclone_II/Synthese_4_b/*
 
 
-# SIMULATION ......................................................
-
-Cyclone_II/simulation/**/*
-# !Cyclone_II/simulation/script/*.do
-
-Cyclone_IV/simulation/**/*
-# !Cyclone_IV/simulation/script/*.do
-
-
-# VHDL.............................................................
-
-
-
-
-# DOKUMENTATTION (noch nicht in git)...............................
-
-# Ordner
-docu
-
-# tex auxiliary files.........
-*.aux
-*.lof
-*.log
-*.lot
-*.fls
-*.out
-*.toc
-
-
-# bibtex ........................
-*.bbl
-*.bcf
-*.blg
-*-blx.aux
-*-blx.bib
-*.brf
-*.run.xml

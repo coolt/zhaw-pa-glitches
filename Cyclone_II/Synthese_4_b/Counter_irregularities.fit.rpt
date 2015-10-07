@@ -1,5 +1,5 @@
 Fitter report for Counter_irregularities
-Mon Oct  5 12:07:13 2015
+Mon Oct  5 16:46:03 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -66,7 +66,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                        ;
 +------------------------------------+--------------------------------------------------+
-; Fitter Status                      ; Successful - Mon Oct  5 12:07:13 2015            ;
+; Fitter Status                      ; Successful - Mon Oct  5 16:46:03 2015            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; Counter_irregularities                           ;
 ; Top-level Entity Name              ; top_counter_verification_4b                      ;
@@ -155,12 +155,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.17        ;
+; Average used               ; 1.10        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  16.7%      ;
+;     Processor 2            ;  10.0%      ;
 ;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -607,14 +607,14 @@ The pin-out file can be found in /home/katrin/Documents/a_PA_glitches/Cyclone_II
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                    ;
-+-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                               ; Library Name ;
-+-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------+--------------+
-; |top_counter_verification_4b              ; 11 (0)      ; 8 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 18   ; 0            ; 3 (0)        ; 0 (0)             ; 8 (0)            ; |top_counter_verification_4b                                      ; work         ;
-;    |counter_4_async_routing:inst_counter| ; 11 (11)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 8 (8)            ; |top_counter_verification_4b|counter_4_async_routing:inst_counter ; work         ;
-+-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                            ;
++-------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------+--------------+
+; Compilation Hierarchy Node    ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                   ; Library Name ;
++-------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------+--------------+
+; |top_counter_verification_4b  ; 11 (0)      ; 8 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 18   ; 0            ; 3 (0)        ; 0 (0)             ; 8 (0)            ; |top_counter_verification_4b                          ; work         ;
+;    |counter_4_b:inst_counter| ; 11 (11)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 8 (8)            ; |top_counter_verification_4b|counter_4_b:inst_counter ; work         ;
++-------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -644,37 +644,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------+----------+---------------+---------------+-----------------------+-----+------+
 
 
-+------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                     ;
-+------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                  ; Pad To Core Index ; Setting ;
-+------------------------------------------------------+-------------------+---------+
-; GPIO_1_1                                             ;                   ;         ;
-; GPIO_1_13                                            ;                   ;         ;
-; GPIO_1_3                                             ;                   ;         ;
-;      - counter_4_async_routing:inst_counter|Equal0~0 ; 0                 ; 6       ;
-; GPIO_1_5                                             ;                   ;         ;
-;      - counter_4_async_routing:inst_counter|Equal0~0 ; 0                 ; 6       ;
-; GPIO_1_7                                             ;                   ;         ;
-;      - counter_4_async_routing:inst_counter|Equal0~0 ; 0                 ; 6       ;
-; GPIO_1_9                                             ;                   ;         ;
-;      - counter_4_async_routing:inst_counter|Equal0~0 ; 1                 ; 6       ;
-; GPIO_1_15                                            ;                   ;         ;
-;      - counter_4_async_routing:inst_counter|Equal0~1 ; 0                 ; 6       ;
-; GPIO_1_11                                            ;                   ;         ;
-;      - counter_4_async_routing:inst_counter|Equal0~1 ; 0                 ; 6       ;
-; CLOCK_50                                             ;                   ;         ;
-+------------------------------------------------------+-------------------+---------+
++------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                         ;
++------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                      ; Pad To Core Index ; Setting ;
++------------------------------------------+-------------------+---------+
+; GPIO_1_1                                 ;                   ;         ;
+; GPIO_1_13                                ;                   ;         ;
+; GPIO_1_3                                 ;                   ;         ;
+;      - counter_4_b:inst_counter|Equal0~0 ; 0                 ; 6       ;
+; GPIO_1_5                                 ;                   ;         ;
+;      - counter_4_b:inst_counter|Equal0~0 ; 0                 ; 6       ;
+; GPIO_1_7                                 ;                   ;         ;
+;      - counter_4_b:inst_counter|Equal0~0 ; 0                 ; 6       ;
+; GPIO_1_9                                 ;                   ;         ;
+;      - counter_4_b:inst_counter|Equal0~0 ; 1                 ; 6       ;
+; GPIO_1_15                                ;                   ;         ;
+;      - counter_4_b:inst_counter|Equal0~1 ; 0                 ; 6       ;
+; GPIO_1_11                                ;                   ;         ;
+;      - counter_4_b:inst_counter|Equal0~1 ; 0                 ; 6       ;
+; CLOCK_50                                 ;                   ;         ;
++------------------------------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                           ;
-+-----------------------------------------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                          ; Location          ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------------------------------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                                      ; PIN_J7            ; 8       ; Clock        ; yes    ; Global Clock         ; GCLK17           ; --                        ;
-; counter_4_async_routing:inst_counter|Equal0~2 ; LCCOMB_X30_Y1_N18 ; 9       ; Async. clear ; no     ; --                   ; --               ; --                        ;
-+-----------------------------------------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                               ;
++-----------------------------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                              ; Location          ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                          ; PIN_J7            ; 8       ; Clock        ; yes    ; Global Clock         ; GCLK17           ; --                        ;
+; counter_4_b:inst_counter|Equal0~2 ; LCCOMB_X30_Y1_N18 ; 9       ; Async. clear ; no     ; --                   ; --               ; --                        ;
++-----------------------------------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -686,43 +686,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
-+----------------------------------------------------------+
-; Non-Global High Fan-Out Signals                          ;
-+------------------------------------------------+---------+
-; Name                                           ; Fan-Out ;
-+------------------------------------------------+---------+
-; counter_4_async_routing:inst_counter|Equal0~2  ; 9       ;
-; counter_4_async_routing:inst_counter|cnt[0]    ; 3       ;
-; counter_4_async_routing:inst_counter|cnt[7]    ; 2       ;
-; counter_4_async_routing:inst_counter|cnt[5]    ; 2       ;
-; counter_4_async_routing:inst_counter|cnt[4]    ; 2       ;
-; counter_4_async_routing:inst_counter|cnt[3]    ; 2       ;
-; counter_4_async_routing:inst_counter|cnt[2]    ; 2       ;
-; counter_4_async_routing:inst_counter|cnt[1]    ; 2       ;
-; counter_4_async_routing:inst_counter|cnt[6]    ; 2       ;
-; GPIO_1_11~input                                ; 1       ;
-; GPIO_1_15~input                                ; 1       ;
-; GPIO_1_9~input                                 ; 1       ;
-; GPIO_1_7~input                                 ; 1       ;
-; GPIO_1_5~input                                 ; 1       ;
-; GPIO_1_3~input                                 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[0]~21 ; 1       ;
-; counter_4_async_routing:inst_counter|Equal0~1  ; 1       ;
-; counter_4_async_routing:inst_counter|Equal0~0  ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[7]~19 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[6]~18 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[6]~17 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[5]~16 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[5]~15 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[4]~14 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[4]~13 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[3]~12 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[3]~11 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[2]~10 ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[2]~9  ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[1]~8  ; 1       ;
-; counter_4_async_routing:inst_counter|cnt[1]~7  ; 1       ;
-+------------------------------------------------+---------+
++----------------------------------------------+
+; Non-Global High Fan-Out Signals              ;
++------------------------------------+---------+
+; Name                               ; Fan-Out ;
++------------------------------------+---------+
+; counter_4_b:inst_counter|Equal0~2  ; 9       ;
+; counter_4_b:inst_counter|cnt[0]    ; 3       ;
+; counter_4_b:inst_counter|cnt[7]    ; 2       ;
+; counter_4_b:inst_counter|cnt[5]    ; 2       ;
+; counter_4_b:inst_counter|cnt[4]    ; 2       ;
+; counter_4_b:inst_counter|cnt[3]    ; 2       ;
+; counter_4_b:inst_counter|cnt[2]    ; 2       ;
+; counter_4_b:inst_counter|cnt[1]    ; 2       ;
+; counter_4_b:inst_counter|cnt[6]    ; 2       ;
+; GPIO_1_11~input                    ; 1       ;
+; GPIO_1_15~input                    ; 1       ;
+; GPIO_1_9~input                     ; 1       ;
+; GPIO_1_7~input                     ; 1       ;
+; GPIO_1_5~input                     ; 1       ;
+; GPIO_1_3~input                     ; 1       ;
+; counter_4_b:inst_counter|cnt[0]~21 ; 1       ;
+; counter_4_b:inst_counter|Equal0~1  ; 1       ;
+; counter_4_b:inst_counter|Equal0~0  ; 1       ;
+; counter_4_b:inst_counter|cnt[7]~19 ; 1       ;
+; counter_4_b:inst_counter|cnt[6]~18 ; 1       ;
+; counter_4_b:inst_counter|cnt[6]~17 ; 1       ;
+; counter_4_b:inst_counter|cnt[5]~16 ; 1       ;
+; counter_4_b:inst_counter|cnt[5]~15 ; 1       ;
+; counter_4_b:inst_counter|cnt[4]~14 ; 1       ;
+; counter_4_b:inst_counter|cnt[4]~13 ; 1       ;
+; counter_4_b:inst_counter|cnt[3]~12 ; 1       ;
+; counter_4_b:inst_counter|cnt[3]~11 ; 1       ;
+; counter_4_b:inst_counter|cnt[2]~10 ; 1       ;
+; counter_4_b:inst_counter|cnt[2]~9  ; 1       ;
+; counter_4_b:inst_counter|cnt[1]~8  ; 1       ;
+; counter_4_b:inst_counter|cnt[1]~7  ; 1       ;
++------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -1027,7 +1027,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.36 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1037,10 +1037,10 @@ Warning (169177): 1 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-V
     Info (169178): Pin CLOCK_50 uses I/O standard 2.5 V at J7
 Info (144001): Generated suppressed messages file /home/katrin/Documents/a_PA_glitches/Cyclone_II/Synthese_4_b/Counter_irregularities.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 879 megabytes
-    Info: Processing ended: Mon Oct  5 12:07:13 2015
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Peak virtual memory: 883 megabytes
+    Info: Processing ended: Mon Oct  5 16:46:03 2015
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:11
 
 
 +----------------------------+
