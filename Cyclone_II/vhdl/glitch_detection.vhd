@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 -- Project     : Glitches detect through long logic paths
--- Description : counter.vhd             
+-- Description : glitch_detection.vhd    
+-- 				: Detect value 15. Once asynchronous (= glitch), once synchronous (cnt)         
 -- Author      : Katrin Bächli
 -------------------------------------------------------------------------------
 -- Change History
@@ -34,38 +35,55 @@ entity glitch_detection is
 end entity;
 
 
-----------------------------------------------------------------------------------
--- Architecture 
-----------------------------------------------------------------------------------
+
 architecture rtl of glitch_detection is 
 
-signal  cnt:				std_logic					:= '0';
-signal  cnt_next:			std_logic					:= '0';  
-signal  reset_cnt: 		std_logic 					:= '0';  
-signal  glitch1: 			integer range 0 to 15 	:= 0;
-signal  next_glitch1: 	integer range 0 to 15 	:= 0;
+----------------------------------------------------------------------------------
+-- signal
+----------------------------------------------------------------------------------
+
+signal  cnt_async: 		integer range 0 to 15 		  := 0;
+signal  next_cnt_async: integer range 0 to 15 		  := 0;
+signal  detect_15_async: std_logic 						  := '0';  
+
+signal  cnt_sync:			std_logic						  := '0';
+signal  cnt_sync_next:	std_logic						  := '0';  
+
 
 signal  rout_out:       std_logic_vector(7 downto 0) := "00000000";
 signal  rout_in:        std_logic_vector(7 downto 0) := "00000000";
 
 
 
-
 begin
 
 ------------------------------------------------------
--- main
+-- input
+------------------------------------------------------	
+		
+	count_up: process(ALL)	
+	begin
+		next_cnt_async <= cnt_async + 1;
+	end process;
+
+	
+------------------------------------------------------
+-- clocked processes
 ------------------------------------------------------	
 	ff: process(clk)	
 	begin			
-		if (rising_edge(clk)) then					
-				cnt 			<= cnt_next;	
-				glitch1 		<= next_glitch1;
+		if (rising_edge(clk)) then		
+				cnt_async 		<= next_cnt_async;
+				cnt_sync 		<= cnt_sync_next;					
 		end if;
 	end process;
 
--- Routing
-   rout_out <= std_logic_vector(to_unsigned(glitch1, 8));
+	
+------------------------------------------------------
+-- delay
+------------------------------------------------------
+ 
+	rout_out <= std_logic_vector(to_unsigned(cnt_async, 8));
    q_0_out  <=  rout_out(0);   
    q_1_out  <=  rout_out(1);
    q_2_out  <=  rout_out(2);
@@ -74,52 +92,26 @@ begin
 	rout_in(0)	  <=  q_0_in;   
    rout_in(1)	  <=  q_1_in;
    rout_in(2)	  <=  q_2_in;		
-
-
-------------------------------------------------------
--- input
-------------------------------------------------------	
 		
-	-- counter
-	count_up: process(ALL)	
-	begin
-		next_glitch1 <= glitch1 + 1;
-	end process;
-
-	
-
-
-	
-	
+		
 ------------------------------------------------------
 -- output
 ------------------------------------------------------	
-	set_glitch: process(ALL)	
-	begin	
-	   -- Detect value 15
-		if ( rout_in(0) = '1' AND rout_in(1) = '1' AND rout_out(2) = '1' AND rout_out(3) = '1') then
-				reset_cnt <= '1';
-		else 
-				reset_cnt <= '0';
-		end if;	
-	end process;
-
-	
 	
 	reset_counter: process(ALL)	
 	begin	
 	   -- asynchronous
-		if glitch1 = 15 then
-			cnt_next <= '1';
+		if ( rout_in(0) = '1' AND rout_in(1) = '1' AND rout_out(2) = '1' AND rout_out(3) = '1') then  
+			detect_15_async <= '1';
+			cnt_sync_next <= '1';
 		else 
-			cnt_next <= '0';
+			detect_15_async <= '0';
+			cnt_sync_next <= '0';
 		end if;	
 	end process;
 		
-	
-	
-	-- Output	
-	count <= cnt;
-	glitch <= reset_cnt;
+	-- set outputs
+	count  <= cnt_sync;
+	glitch <= detect_15_async;
 
 end rtl;
