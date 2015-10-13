@@ -19,8 +19,8 @@ use ieee.numeric_std.all;
 
 entity counter is
 	port(	clk: 				in std_logic;
-			verification:	out std_logic; 
-			zero_out:		out std_logic
+			count_async:	out std_logic; 
+			count_sync:		out std_logic
 	);
 end entity;
 
@@ -30,52 +30,56 @@ end entity;
 ----------------------------------------------------------------------------------
 architecture rtl of counter is 
 
-signal   s_cnt: 			integer range 0 to 255 		:=  0;
-signal   s_next_cnt: 	integer range 0 to 255 		:=  0;
-signal 	s_glitch: 		std_logic 						:= '0';  -- asynchronous
-signal 	s_next_zero: 	std_logic 						:= '0';  -- synchronous
-signal 	s_zero: 			std_logic 						:= '0';  -- synchronous
+signal   cnt: 			integer range 0 to 7 		:=  0;
+signal   next_cnt: 	integer range 0 to 7 		:=  0;
+
+signal 	async_max: 	std_logic 						:= '0';  
+
+signal 	next_sync_cnt: std_logic 					:= '0'; 
+signal 	sync_cnt: 	std_logic 						:= '0';  
 
 begin
 
-	-- clocked prozess -------------------------------
-	ff: process(clk, s_next_cnt, s_next_zero)	
+	-------------------------------------------------------
+	-- clocked prozess 
+	-------------------------------------------------------	
+	ff: process(clk, next_cnt, next_sync_cnt)	
 	begin	
-		-- asynchronous
-		if (s_next_zero = '1') then				
-				s_cnt  <=  0 ;
-				
-		-- synchronous
+		if (next_sync_cnt  = '1') then				
+				cnt  <=  0 ;
 		elsif (rising_edge(clk)) then	
-				s_cnt  <= s_next_cnt;	
-				s_zero <= s_next_zero;	
+				cnt  <= next_cnt;								
+				sync_cnt <= next_sync_cnt;	 -- ff für synchronisation vor ausgang
 		end if;
 	end process;
 
 	
-	-- input logic process ----------------------------
-	count_up: process(s_cnt)	
+	-------------------------------------------------------
+	-- input logic
+	-------------------------------------------------------
+	counter: process(cnt)	
 	begin	
-		s_next_cnt <= s_cnt + 1;
+		next_cnt <= cnt + 1;
 	end process;
 
-	
-	-- output compare logic process 1 ---------------------------
-	compare: process(s_cnt)	
+	-------------------------------------------------------
+	-- output 
+	-------------------------------------------------------
+	decoder: process(cnt)	
 	begin	
-		if (s_cnt = 158) then				
-				s_glitch    <= '1';			
-				s_next_zero <= '1';
+		if (cnt = 2)  then	 			
+				async_max    <= '1';			
+				next_sync_cnt 	 <= '1';
+		elsif (cnt = 3) or(cnt = 4) or (cnt = 5) or (cnt = 6) or (cnt = 7) or (cnt = 8) then
+				async_max    <= '1';	
 		else 				
-				s_glitch    <= '0';
-				s_next_zero <= '0';
+				async_max    <= '0';
+				next_sync_cnt <= '0';
 		end if;		
 	end process;
-
- 
+	
+	count_async 	<= async_max;
+	count_sync     <= next_sync_cnt;
 	
 	
-	-- Concourent assignments ---------------------------
-	verification <= s_glitch;
-	zero_out     <= s_zero;
 end rtl;

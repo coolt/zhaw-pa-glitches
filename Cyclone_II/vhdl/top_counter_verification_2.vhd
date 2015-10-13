@@ -17,8 +17,8 @@ use IEEE.NUMERIC_STD.ALL;
  
 ENTITY top_counter_verification IS
       PORT(    CLOCK_50: 			IN std_logic;
-					GPIO_0_0:		   OUT std_logic;  
-					GPIO_0_1:		   OUT std_logic  
+					GPIO_0_0:		   OUT std_logic;  -- async count (glitch)
+					GPIO_0_1:		   OUT std_logic   -- sync count (zähler)
 		);
 END top_counter_verification;
 
@@ -32,36 +32,21 @@ ARCHITECTURE blocks OF top_counter_verification IS
 
 		COMPONENT counter
 				  PORT(	clk: 				IN std_logic;
-							verification:	OUT std_logic; 
-							zero_out:		OUT std_logic
+							count_async:	OUT std_logic; 
+							count_sync:		OUT std_logic
 					);
 		END COMPONENT; 
-		
-				
-    -- Signals: 
-	 SIGNAL s_set_zero: std_logic := '0';
-	 SIGNAL s_set_clock: std_logic := '0';
+
 		
 	 -- Instantiation of components: 
 		BEGIN
    
 		inst_counter: counter
 		PORT MAP(		clk 				=> CLOCK_50,
-							verification	=> GPIO_0_0,  
-							zero_out 		=> GPIO_0_1    	
+							count_async		=> GPIO_0_0,  
+							count_sync 		=> GPIO_0_1    	
 		);
 	 
-
-----------------------------------------------------------------------------------
--- Processes
-----------------------------------------------------------------------------------
-
-
-
-    -- Concurrent Assignments  
-	 
-    -- Assign outputs from intermediate signals
-
 
 end blocks;
 
